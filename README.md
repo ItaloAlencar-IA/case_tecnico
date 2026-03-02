@@ -1,8 +1,8 @@
 # Case Técnico
 
-## 1. Documentação do Processo de Importação
+# 1. Documentação do Processo de Importação
 
-1.2 Ferramentas utilizadas para importação
+## 1.1 Ferramentas utilizadas para importação
 GitHub (disponibilizar estrutura simplificada do projeto)
 VS Code (criar vínculos com Docker, GitHub e Apache Hop)
 Docker (vinculação e execução de ferramentas em contêineres isolados)
@@ -11,7 +11,7 @@ Dbeaver (fazer as consultas e queries)
 
 Criado relação, mas não utilizado devido tempo - Jenkins (gestão de CI e CD)
 
-### 1.3 Estrutura das Planilhas (colunas e tipos de dados)
+## 1.2 Estrutura das Planilhas (colunas e tipos de dados)
 
 ```
 venda(
@@ -75,20 +75,20 @@ fornecedor(
     CONSTRAINT fornecedor_pkey PRIMARY KEY (idfornecedor, razao_social)
 ```
 
-### 1.4 Tratamentos aplicados (conversão de tipos, validações, normalizações)
+## 1.3 Tratamentos aplicados (conversão de tipos, validações, normalizações)
 Todas as colunas de data já formatadas para "DD/MM/YYYY" (via apache hop)
 Trigger de fornecedor inserido (via apache hop)
 
 
-### 1.5 Ajustes ou correções realizadas durante o processo
+## 1.4 Ajustes ou correções realizadas durante o processo
 Alterado nome das colunas via pipeline
 tabela produtos filial (produto_id, fornecedor_id)
 colunas que não existiam foram criadas (quantidade total)
 
 
-## 2. Consultas sql básicas
+# 2. Consultas sql básicas
 
-### 2.1. Total de vendas em quantidade e em valores por cada produto no mês de fevereiro de 2025
+## 2.1. Total de vendas em quantidade e em valores por cada produto no mês de fevereiro de 2025
 
 ```
 WITH input AS (
@@ -108,7 +108,7 @@ WHERE
     GROUP BY v.produto_id, v.qtde_vendida
     ORDER BY total_vendas desc, v.qtde_vendida desc;
 ```
-### 2.2 Pedidos requisitados mas não existe ordem de compra
+## 2.2 Pedidos requisitados mas não existe ordem de compra
 
 ```
 select * from public.pedido_compra pc
@@ -116,9 +116,9 @@ where
 pc.ordem_compra = 0; -- Requisitados mas não existe ordem de compra
 ```
 
-### 3. Transformações de dados
+# 3. Transformações de dados
 
-### 3.1. Concatenar os campos produto_id e descricao_produto (onde houver) no formato;
+## 3.1. Concatenar os campos produto_id e descricao_produto (onde houver) no formato;
 
 ```
 select 
@@ -136,11 +136,11 @@ from public.venda v
     on pc.produto_id = v.produto_id
 ```
 
-### 3.2. Transformar o campo de datas para o formato `DD/MM/YYYY`; 
+## 3.2. Transformar o campo de datas para o formato `DD/MM/YYYY`; 
 
 Feito para todos via Apache Hop
 
-### 3.3. Retornar os dados filtrando apenas os produtos requisitados mais de 10 vezes no período.
+## 3.3. Retornar os dados filtrando apenas os produtos requisitados mais de 10 vezes no período.
 
 ```
 select 
@@ -153,22 +153,22 @@ where
 v.qtde_vendida > 10 
 ```
 
-### 3.4. Criar uma trigger que gere automaticamente um novo `idfornecedor` numérico na tabela de produtos que se relacione com a tabela de fornecedor.
+## 3.4. Criar uma trigger que gere automaticamente um novo `idfornecedor` numérico na tabela de produtos que se relacione com a tabela de fornecedor.
 
 Feito via Apache Hop no pipeline da tabela de fornecedor
 
 
-### 4. Estratégia de validação com o cliente
+# 4. Estratégia de validação com o cliente
 
-### 4.1. Quais seriam os principais pontos que você validaria com o cliente?
+## 4.1. Quais seriam os principais pontos que você validaria com o cliente?
 Faria perguntas relacionadas a 3 relações diretas: 
  - O que é cada coluna... o que seria a quantidade, porque alguns são quebrados, se impacta diretamente na unidade_medida e o que seria a data_emissão
  - Se referente ao que eles possuem de informação o resultado é semelhante ou idêntico para comparativos
  - Existe algum caso de histórico de mudança em algum dos produtos sinalizados
  - Caso houvesse possibilidade iria fazer a correlação da tabela de compras referente a alguns itens estarem vindo de forma incorreta
  
-### 4.2. Quais técnicas utilizaria para garantir a exatidão e a precisão dos dados?
+## 4.2. Quais técnicas utilizaria para garantir a exatidão e a precisão dos dados?
 Um dos métodos foi o que foi sinalizado acima resultado feito x cliente, relação entre tabelas, ETL bem consolidado (tratamento de datas, colunas que causem estranheza).
 
-### 4.3. Quais consultas você deixaria prontas para usar na reunião de validação?
+## 4.3. Quais consultas você deixaria prontas para usar na reunião de validação?
 Total de vendas em quantidade e em valores por cada produto no mês de fevereiro de 2025, também deixaria ela somente sem total somente com o histórico de fevereiro e exploraria caso necessário, comparação tabela produtos _filial x venda (sinalizando que existem produtos em venda que não estão no produtos_filial)
