@@ -1,0 +1,2 @@
+# Mantém LF no repositório e evita bagunça Windows/Linux
+* text=auto eol=lf
