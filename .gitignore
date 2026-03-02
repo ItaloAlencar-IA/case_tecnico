@@ -1,0 +1,13 @@
+# Ambiente/segredos
+.env
+
+# Dados locais (normalmente não versionar)
+data/input/
+data/output/
+
+# Arquivos temporários
+.DS_Store
+Thumbs.db
+
+# Se algum tool gerar cache/logs
+*.log

@@ -1,0 +1,55 @@
+services:
+  database:
+    image: postgres:16
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: case_tecnico
+    ports:
+      - "5433:5432"
+    networks:
+      - data-network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  hop-web:
+    image: apache/hop-web:latest
+    container_name: hop_web
+    restart: always
+    ports:
+      - "8081:8080"
+    networks:
+      - data-network
+    environment:
+      - HOP_SERVER_USER=admin
+      - HOP_SERVER_PASS=admin
+    volumes:
+      # No Windows, o Docker Desktop resolve o ./ automaticamente para o caminho atual
+      - ./hop-projects:/files
+      - ./lib:/opt/hop/plugins/databases/postgresql/lib
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins_server
+    restart: always
+    privileged: true
+    user: root
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    networks:
+      - data-network
+    volumes:
+      - jenkins_data:/var/jenkins_home
+      # Mapeamento específico para Docker Desktop no Windows:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+networks:
+  data-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  jenkins_data:
