@@ -18,16 +18,40 @@
     <modified_date>2026/02/28 21:32:19.126</modified_date>
   </info>
   <notepads>
+    <notepad>
+      <backgroundcolorblue>251</backgroundcolorblue>
+      <backgroundcolorgreen>232</backgroundcolorgreen>
+      <backgroundcolorred>201</backgroundcolorred>
+      <bordercolorblue>90</bordercolorblue>
+      <bordercolorgreen>58</bordercolorgreen>
+      <bordercolorred>14</bordercolorred>
+      <fontbold>N</fontbold>
+      <fontcolorblue>90</fontcolorblue>
+      <fontcolorgreen>58</fontcolorgreen>
+      <fontcolorred>14</fontcolorred>
+      <fontitalic>N</fontitalic>
+      <fontsize>-1</fontsize>
+      <height>20</height>
+      <xloc>424</xloc>
+      <yloc>174</yloc>
+      <note>ALTER TABLE fornecedor ADD COLUMN "Trigger" BIGINT;</note>
+      <width>20</width>
+    </notepad>
   </notepads>
   <order>
     <hop>
-      <from>Microsoft Excel input</from>
-      <to>Select values</to>
+      <from>Select values</from>
+      <to>Table output - fornecedor</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values</from>
-      <to>Table output - fornecedor</to>
+      <from>Microsoft Excel input</from>
+      <to>Add sequence - Trigger</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Add sequence - Trigger</from>
+      <to>Select values</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -42,24 +66,14 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <accept_field/>
     <accept_filenames>N</accept_filenames>
-    <accept_transform_name/>
     <add_to_result_filenames>Y</add_to_result_filenames>
-    <bad_line_files_destination_directory/>
     <bad_line_files_extension>warning</bad_line_files_extension>
-    <encoding/>
     <error_ignored>N</error_ignored>
-    <error_line_files_destination_directory/>
     <error_line_files_extension>error</error_line_files_extension>
     <error_line_skipped>N</error_line_skipped>
-    <extensionFieldName/>
     <fields>
       <field>
-        <currency/>
-        <decimal/>
-        <format/>
-        <group/>
         <length>-1</length>
         <name>idfornecedor</name>
         <precision>-1</precision>
@@ -68,10 +82,6 @@
         <type>String</type>
       </field>
       <field>
-        <currency/>
-        <decimal/>
-        <format/>
-        <group/>
         <length>-1</length>
         <name>razao_social</name>
         <precision>-1</precision>
@@ -81,27 +91,13 @@
       </field>
     </fields>
     <file>
-      <exclude_filemask/>
-      <file_required/>
-      <filemask/>
-      <include_subfolders/>
       <name>/files/base_teste_systock.xlsx</name>
     </file>
-    <filefield/>
     <header>Y</header>
-    <hiddenFieldName/>
     <ignore_fields>N</ignore_fields>
-    <lastModificationTimeFieldName/>
     <limit>0</limit>
-    <line_number_files_destination_directory/>
     <line_number_files_extension>line</line_number_files_extension>
     <noempty>Y</noempty>
-    <pathFieldName/>
-    <rootUriNameFieldName/>
-    <rownumfield/>
-    <schema_definition/>
-    <sheetfield/>
-    <sheetrownumfield/>
     <sheets>
       <sheet>
         <name>fornecedor</name>
@@ -109,12 +105,9 @@
         <startrow>0</startrow>
       </sheet>
     </sheets>
-    <shortFileFieldName/>
-    <sizeFieldName/>
     <spreadsheet_type>SAX_POI</spreadsheet_type>
     <stoponempty>N</stoponempty>
     <strict_types>N</strict_types>
-    <uriNameFieldName/>
     <attributes/>
     <GUI>
       <xloc>64</xloc>
@@ -142,6 +135,12 @@
       <field>
         <length>-2</length>
         <name>razao_social</name>
+        <precision>-2</precision>
+        <rename/>
+      </field>
+      <field>
+        <length>-2</length>
+        <name>Trigger</name>
         <precision>-2</precision>
         <rename/>
       </field>
@@ -181,11 +180,29 @@
         <storage_type/>
         <type>String</type>
       </meta>
+      <meta>
+        <conversion_mask/>
+        <currency_symbol/>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <decimal_symbol/>
+        <encoding/>
+        <grouping_symbol/>
+        <length>-2</length>
+        <lenient_string_to_number>N</lenient_string_to_number>
+        <name>Trigger</name>
+        <precision>0</precision>
+        <rename>Trigger</rename>
+        <roundingType>half_even</roundingType>
+        <storage_type/>
+        <type>Integer</type>
+      </meta>
       <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
     <GUI>
-      <xloc>256</xloc>
+      <xloc>400</xloc>
       <yloc>128</yloc>
     </GUI>
   </transform>
@@ -216,6 +233,10 @@
         <column_name>razao_social</column_name>
         <stream_name>razao_social</stream_name>
       </field>
+      <field>
+        <column_name>Trigger</column_name>
+        <stream_name>Trigger</stream_name>
+      </field>
     </fields>
     <ignore_errors>N</ignore_errors>
     <only_when_have_rows>N</only_when_have_rows>
@@ -232,10 +253,37 @@
     <tablename_in_field>N</tablename_in_field>
     <tablename_in_table>Y</tablename_in_table>
     <truncate>Y</truncate>
-    <use_batch>Y</use_batch>
+    <use_batch>N</use_batch>
     <attributes/>
     <GUI>
-      <xloc>464</xloc>
+      <xloc>560</xloc>
+      <yloc>128</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>Add sequence - Trigger</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>case_tecnico</connection>
+    <counter_name/>
+    <increment_by>1</increment_by>
+    <max_value>999999999</max_value>
+    <schema/>
+    <seqname>SEQ_</seqname>
+    <start_at>1</start_at>
+    <use_counter>Y</use_counter>
+    <use_database>N</use_database>
+    <valuename>Trigger</valuename>
+    <attributes/>
+    <GUI>
+      <xloc>224</xloc>
       <yloc>128</yloc>
     </GUI>
   </transform>

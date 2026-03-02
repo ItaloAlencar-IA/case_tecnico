@@ -162,7 +162,7 @@
     <attributes/>
     <GUI>
       <xloc>672</xloc>
-      <yloc>368</yloc>
+      <yloc>352</yloc>
     </GUI>
   </transform>
   <transform>
@@ -459,69 +459,89 @@
         <length>-2</length>
         <name>pedido_id</name>
         <precision>-2</precision>
+        <rename/>
       </field>
       <field>
         <length>-2</length>
         <name>data_pedido</name>
         <precision>-2</precision>
+        <rename/>
       </field>
       <field>
         <length>-2</length>
         <name>item</name>
         <precision>-2</precision>
+        <rename/>
       </field>
       <field>
         <length>-2</length>
         <name>produto_id</name>
         <precision>-2</precision>
+        <rename/>
       </field>
       <field>
         <length>-2</length>
         <name>descricao_produto</name>
         <precision>-2</precision>
+        <rename/>
       </field>
       <field>
         <length>-2</length>
         <name>ordem_compra</name>
         <precision>-2</precision>
+        <rename/>
       </field>
       <field>
         <length>-2</length>
         <name>qtde_pedida</name>
         <precision>-2</precision>
+        <rename/>
       </field>
       <field>
         <length>-2</length>
         <name>filial_id</name>
         <precision>-2</precision>
+        <rename/>
       </field>
       <field>
         <length>-2</length>
         <name>data_entrega</name>
         <precision>-2</precision>
+        <rename/>
       </field>
       <field>
         <length>-2</length>
         <name>qtde_entregue</name>
         <precision>-2</precision>
+        <rename/>
       </field>
       <field>
         <length>-2</length>
         <name>qtde_pendente</name>
         <precision>-2</precision>
+        <rename/>
       </field>
       <field>
         <length>-2</length>
         <name>preco_compra</name>
         <precision>-2</precision>
+        <rename/>
       </field>
       <field>
         <length>-2</length>
         <name>fornecedor_id</name>
         <precision>-2</precision>
+        <rename/>
       </field>
       <meta>
+        <conversion_mask/>
+        <currency_symbol/>
         <date_format_lenient>N</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <decimal_symbol/>
+        <encoding/>
+        <grouping_symbol/>
         <length>-2</length>
         <lenient_string_to_number>N</lenient_string_to_number>
         <name>pedido_id</name>
@@ -532,7 +552,14 @@
         <type>Number</type>
       </meta>
       <meta>
+        <conversion_mask/>
+        <currency_symbol/>
         <date_format_lenient>N</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <decimal_symbol/>
+        <encoding/>
+        <grouping_symbol/>
         <length>-2</length>
         <lenient_string_to_number>N</lenient_string_to_number>
         <name>data_pedido</name>
@@ -543,7 +570,14 @@
         <type>Date</type>
       </meta>
       <meta>
+        <conversion_mask/>
+        <currency_symbol/>
         <date_format_lenient>N</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <decimal_symbol/>
+        <encoding/>
+        <grouping_symbol/>
         <length>-2</length>
         <lenient_string_to_number>N</lenient_string_to_number>
         <name>item</name>
@@ -554,7 +588,14 @@
         <type>Number</type>
       </meta>
       <meta>
+        <conversion_mask/>
+        <currency_symbol/>
         <date_format_lenient>N</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <decimal_symbol/>
+        <encoding/>
+        <grouping_symbol/>
         <length>-2</length>
         <lenient_string_to_number>N</lenient_string_to_number>
         <name>produto_id</name>
@@ -565,7 +606,14 @@
         <type>String</type>
       </meta>
       <meta>
+        <conversion_mask/>
+        <currency_symbol/>
         <date_format_lenient>N</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <decimal_symbol/>
+        <encoding/>
+        <grouping_symbol/>
         <length>-2</length>
         <lenient_string_to_number>N</lenient_string_to_number>
         <name>descricao_produto</name>
@@ -576,7 +624,14 @@
         <type>String</type>
       </meta>
       <meta>
+        <conversion_mask/>
+        <currency_symbol/>
         <date_format_lenient>N</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <decimal_symbol/>
+        <encoding/>
+        <grouping_symbol/>
         <length>-2</length>
         <lenient_string_to_number>N</lenient_string_to_number>
         <name>ordem_compra</name>
@@ -587,7 +642,14 @@
         <type>Number</type>
       </meta>
       <meta>
+        <conversion_mask/>
+        <currency_symbol/>
         <date_format_lenient>N</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <decimal_symbol/>
+        <encoding/>
+        <grouping_symbol/>
         <length>-2</length>
         <lenient_string_to_number>N</lenient_string_to_number>
         <name>qtde_pedida</name>
@@ -598,7 +660,14 @@
         <type>Number</type>
       </meta>
       <meta>
+        <conversion_mask/>
+        <currency_symbol/>
         <date_format_lenient>N</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <decimal_symbol/>
+        <encoding/>
+        <grouping_symbol/>
         <length>-2</length>
         <lenient_string_to_number>N</lenient_string_to_number>
         <name>filial_id</name>
@@ -609,7 +678,14 @@
         <type>Integer</type>
       </meta>
       <meta>
+        <conversion_mask/>
+        <currency_symbol/>
         <date_format_lenient>N</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <decimal_symbol/>
+        <encoding/>
+        <grouping_symbol/>
         <length>-2</length>
         <lenient_string_to_number>N</lenient_string_to_number>
         <name>data_entrega</name>
@@ -620,7 +696,14 @@
         <type>Date</type>
       </meta>
       <meta>
+        <conversion_mask/>
+        <currency_symbol/>
         <date_format_lenient>N</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <decimal_symbol/>
+        <encoding/>
+        <grouping_symbol/>
         <length>-2</length>
         <lenient_string_to_number>N</lenient_string_to_number>
         <name>qtde_entregue</name>
@@ -631,7 +714,14 @@
         <type>Number</type>
       </meta>
       <meta>
+        <conversion_mask/>
+        <currency_symbol/>
         <date_format_lenient>N</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <decimal_symbol/>
+        <encoding/>
+        <grouping_symbol/>
         <length>-2</length>
         <lenient_string_to_number>N</lenient_string_to_number>
         <name>qtde_pendente</name>
@@ -642,7 +732,14 @@
         <type>Number</type>
       </meta>
       <meta>
+        <conversion_mask/>
+        <currency_symbol/>
         <date_format_lenient>N</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <decimal_symbol/>
+        <encoding/>
+        <grouping_symbol/>
         <length>-2</length>
         <lenient_string_to_number>N</lenient_string_to_number>
         <name>preco_compra</name>
@@ -653,7 +750,14 @@
         <type>Number</type>
       </meta>
       <meta>
+        <conversion_mask/>
+        <currency_symbol/>
         <date_format_lenient>N</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <decimal_symbol/>
+        <encoding/>
+        <grouping_symbol/>
         <length>-2</length>
         <lenient_string_to_number>N</lenient_string_to_number>
         <name>fornecedor_id</name>
@@ -661,7 +765,7 @@
         <rename>fornecedor_id</rename>
         <roundingType>half_even</roundingType>
         <storage_type/>
-        <type>Number</type>
+        <type>String</type>
       </meta>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -975,7 +1079,7 @@
         <rename>fornecedor_id</rename>
         <roundingType>half_even</roundingType>
         <storage_type/>
-        <type>Number</type>
+        <type>String</type>
       </meta>
       <meta>
         <conversion_mask/>
@@ -1307,7 +1411,7 @@
         <rename>fornecedor_id</rename>
         <roundingType>half_even</roundingType>
         <storage_type/>
-        <type>Number</type>
+        <type>String</type>
       </meta>
       <meta>
         <conversion_mask/>
@@ -1347,8 +1451,8 @@
       <schema_name/>
     </partitioning>
     <add_columns>N</add_columns>
-    <always_drop_and_recreate>N</always_drop_and_recreate>
-    <auto_update_table_structure>N</auto_update_table_structure>
+    <always_drop_and_recreate>Y</always_drop_and_recreate>
+    <auto_update_table_structure>Y</auto_update_table_structure>
     <change_column_types>N</change_column_types>
     <commit>1000</commit>
     <connection>case_tecnico</connection>
@@ -1411,11 +1515,14 @@
     <only_when_have_rows>N</only_when_have_rows>
     <partitioning_daily>N</partitioning_daily>
     <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
     <partitioning_monthly>Y</partitioning_monthly>
+    <return_field/>
     <return_keys>N</return_keys>
     <schema>"public"</schema>
-    <specify_fields>Y</specify_fields>
+    <specify_fields>N</specify_fields>
     <table>pedido_compra</table>
+    <tablename_field/>
     <tablename_in_field>N</tablename_in_field>
     <tablename_in_table>Y</tablename_in_table>
     <truncate>Y</truncate>

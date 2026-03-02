@@ -1,5 +1,7 @@
 # Ambiente/segredos
 .env
+.env.*
+!.env.example
 
 # Dados locais (normalmente não versionar)
 data/input/
@@ -11,3 +13,4 @@ Thumbs.db
 
 # Se algum tool gerar cache/logs
 *.log
+logs/
