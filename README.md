@@ -90,8 +90,9 @@ colunas que não existiam foram criadas (quantidade total)
 
 ### 2.1. Total de vendas em quantidade e em valores por cada produto no mês de fevereiro de 2025
 
+```
 WITH input AS (
-  SELECT
+    SELECT
     2025::int AS ano, 2::int AS mes -- altere aqui o ano e mês para consulta
 )
 
@@ -100,37 +101,40 @@ select
   v.qtde_vendida,
   SUM(v.qtde_vendida * v.valor_unitario) AS total_vendas
 FROM venda v
-cross join input i
+    cross join input i
 WHERE 
-extract(year from v.data_emissao) = i.ano
-AND extract(month from v.data_emissao) = i.mes
-GROUP BY v.produto_id, v.qtde_vendida
-ORDER BY total_vendas desc, v.qtde_vendida desc;
-
-
+    extract(year from v.data_emissao) = i.ano
+    AND extract(month from v.data_emissao) = i.mes
+    GROUP BY v.produto_id, v.qtde_vendida
+    ORDER BY total_vendas desc, v.qtde_vendida desc;
+```
 ### 2.2 Pedidos requisitados mas não existe ordem de compra
 
+```
 select * from public.pedido_compra pc
 where
 pc.ordem_compra = 0; -- Requisitados mas não existe ordem de compra
-
-
+```
 
 ### 3. Transformações de dados
 
 ### 3.1. Concatenar os campos produto_id e descricao_produto (onde houver) no formato;
 
+```
 select 
-produto_id || ' - ' || descricao_produto as ID_Produto,
-*
+    produto_id || ' - ' || descricao_produto as ID_Produto,
+    *
 from pedido_compra pc
+```
 
+```
 select 
-v.produto_id || ' - ' || pc.descricao_produto as ID_Produto,
-v.*
+    v.produto_id || ' - ' || pc.descricao_produto as ID_Produto,
+    v.*
 from public.venda v
-left JOIN pedido_compra pc
-on pc.produto_id = v.produto_id
+    left JOIN pedido_compra pc
+    on pc.produto_id = v.produto_id
+```
 
 ### 3.2. Transformar o campo de datas para o formato `DD/MM/YYYY`; 
 
@@ -138,6 +142,7 @@ Feito para todos via Apache Hop
 
 ### 3.3. Retornar os dados filtrando apenas os produtos requisitados mais de 10 vezes no período.
 
+```
 select 
 v.produto_id || ' - ' || pc.descricao_produto as ID_Produto,
 v.*
@@ -146,6 +151,7 @@ left JOIN pedido_compra pc
 on pc.produto_id = v.produto_id
 where
 v.qtde_vendida > 10 
+```
 
 ### 3.4. Criar uma trigger que gere automaticamente um novo `idfornecedor` numérico na tabela de produtos que se relacione com a tabela de fornecedor.
 
@@ -154,12 +160,15 @@ Feito via Apache Hop no pipeline da tabela de fornecedor
 
 ### 4. Estratégia de validação com o cliente
 
-### 4.1. Faria perguntas relacionadas a 3 relações diretas: 
+### 4.1. Quais seriam os principais pontos que você validaria com o cliente?
+Faria perguntas relacionadas a 3 relações diretas: 
  - O que é cada coluna... o que seria a quantidade, porque alguns são quebrados, se impacta diretamente na unidade_medida e o que seria a data_emissão
  - Se referente ao que eles possuem de informação o resultado é semelhante ou idêntico para comparativos
  - Existe algum caso de histórico de mudança em algum dos produtos sinalizados
  - Caso houvesse possibilidade iria fazer a correlação da tabela de compras referente a alguns itens estarem vindo de forma incorreta
  
-### 4.2. Um dos métodos foi o que foi sinalizado acima resultado feito x cliente, relação entre tabelas, ETL bem consolidado (tratamento de datas, colunas que causem estranheza).
+### 4.2. Quais técnicas utilizaria para garantir a exatidão e a precisão dos dados?
+Um dos métodos foi o que foi sinalizado acima resultado feito x cliente, relação entre tabelas, ETL bem consolidado (tratamento de datas, colunas que causem estranheza).
 
-### 4.3. Total de vendas em quantidade e em valores por cada produto no mês de fevereiro de 2025, também deixaria ela somente sem total somente com o histórico de fevereiro e exploraria caso necessário, comparação tabela produtos _filial x venda (sinalizando que existem produtos em venda que não estão no produtos_filial)
+### 4.3. Quais consultas você deixaria prontas para usar na reunião de validação?
+Total de vendas em quantidade e em valores por cada produto no mês de fevereiro de 2025, também deixaria ela somente sem total somente com o histórico de fevereiro e exploraria caso necessário, comparação tabela produtos _filial x venda (sinalizando que existem produtos em venda que não estão no produtos_filial)
