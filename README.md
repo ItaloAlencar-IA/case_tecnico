@@ -13,6 +13,7 @@ Criado relação, mas não utilizado devido tempo - Jenkins (gestão de CI e CD)
 
 ### 1.3 Estrutura das Planilhas (colunas e tipos de dados)
 
+```
 venda(
 venda_id int8 NOT NULL,
 data_emissao date NOT NULL,
@@ -24,7 +25,8 @@ filial_id int8 DEFAULT 1 NOT NULL,
 item int4 DEFAULT 0 NOT NULL,
 unidade_medida varchar(3) NULL,
 CONSTRAINT pk_consumo PRIMARY KEY (filial_id, venda_id, data_emissao, produto_id, item, horariomov)
-
+``` 
+```
 pedido_compra(
 pedido_id float8 DEFAULT 0 NOT NULL,
 data_pedido date NULL,
@@ -40,7 +42,8 @@ qtde_pendente float8 DEFAULT 0 NOT NULL,--não informada na planilha
 preco_compra float8 DEFAULT 0 NULL,
 fornecedor_id int4 DEFAULT 0 NULL,
 CONSTRAINT pedido_compra_pkey PRIMARY KEY (pedido_id , produto_id, item)
-
+```
+```
 entradas_mercadoria (
 	ordem_compra float8 DEFAULT 0 NOT NULL, 
 	data_entrada date NULL,
@@ -52,7 +55,8 @@ entradas_mercadoria (
 	filial_id int4 NULL,
 	custo_unitario numeric(12, 4) DEFAULT 0 NOT NULL,
 	CONSTRAINT entradas_mercadoria_pkey PRIMARY KEY (ordem_compra, item, produto_id, nro_nfe)
-
+```
+```
 produtos_filial (
 	filial_id int4 NOT NULL,
 	produto_id varchar(25) DEFAULT '0' NOT NULL, --não informada na planilha com esse nome
@@ -63,11 +67,13 @@ produtos_filial (
 	preco_venda float8 DEFAULT 0 NOT NULL, -- alterar para (numeric(12,4) NOT NULL DEFAULT 0)
 	fornecedor_id int4 null, --não informada na planilha com esse nome e alterar tipo de dado (varchar(25) NOT NULL)
 	CONSTRAINT produtos_filial_pkey PRIMARY KEY (filial_id, produto_id)
-
+```
+```
 fornecedor(
 idfornecedor varchar(25) NOT NULL,
 razao_social varchar(255) NOT NULL,
 CONSTRAINT fornecedor_pkey PRIMARY KEY (idfornecedor, razao_social)
+```
 
 ### 1.4 Tratamentos aplicados (conversão de tipos, validações, normalizações)
 Todas as colunas de data já formatadas para "DD/MM/YYYY" (via apache hop)
