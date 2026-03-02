@@ -1,6 +1,6 @@
-Documentação do Processo de Importação
+-- 1. Documentação do Processo de Importação
 
--- Ferramentas utilizadas para importação
+-- 1.2 Ferramentas utilizadas para importação
 GitHub (disponibilizar estrutura simplificada do projeto)
 VS Code (criar vínculos com Docker, GitHub e Apache Hop)
 Docker (vinculação e execução de ferramentas em contêineres isolados)
@@ -9,7 +9,7 @@ Dbeaver (fazer as consultas e queries)
 
 Criado relação, mas não utilizado devido tempo - Jenkins (gestão de CI e CD)
 
--- Estrutura das Planilhas (colunas e tipos de dados)
+-- 1.3 Estrutura das Planilhas (colunas e tipos de dados)
 
 venda(
 venda_id int8 NOT NULL,
@@ -67,19 +67,15 @@ idfornecedor varchar(25) NOT NULL,
 razao_social varchar(255) NOT NULL,
 CONSTRAINT fornecedor_pkey PRIMARY KEY (idfornecedor, razao_social)
 
-Colunas não informadas na planilha enviada
-tabela pedido_compra (qtde_pendente)
-
--- Tratamentos aplicados (conversão de tipos, validações, normalizações)
+-- 1.4 Tratamentos aplicados (conversão de tipos, validações, normalizações)
 Todas as colunas de data já formatadas para "DD/MM/YYYY" (via apache hop)
 Trigger de fornecedor inserido (via apache hop)
 
 
--- Ajustes ou correções realizadas durante o processo
+-- 1.5 Ajustes ou correções realizadas durante o processo
 Alterado nome das colunas via pipeline
 tabela produtos filial (produto_id, fornecedor_id)
-colunas que não existiam foram criadas
-
+colunas que não existiam foram criadas (quantidade total)
 
 
 ### Monte um roteiro descritivo:
