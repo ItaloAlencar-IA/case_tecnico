@@ -13,6 +13,7 @@ services:
       - data-network
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   hop-web:
     image: apache/hop-web:latest
