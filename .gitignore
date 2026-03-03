@@ -19,7 +19,6 @@ logs/
 # Backups/dumps
 backups/
 *.dump
-*.sql
 *.tar
 *.gz
 
