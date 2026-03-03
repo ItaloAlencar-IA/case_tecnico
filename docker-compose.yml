@@ -15,6 +15,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
       - ./postgres_sql:/files
+      - ./seed.sql:/docker-entrypoint-initdb.d/seed.sql
 
   hop-web:
     image: apache/hop-web:latest
@@ -47,6 +48,7 @@ services:
       - jenkins_data:/var/jenkins_home
       # Mapeamento específico para Docker Desktop no Windows:
       - /var/run/docker.sock:/var/run/docker.sock
+      - ./case_tecnico:/var/lib/postgresql/data
 
 networks:
   data-network:
