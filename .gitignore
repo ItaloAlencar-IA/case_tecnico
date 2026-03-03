@@ -14,3 +14,16 @@ Thumbs.db
 # Se algum tool gerar cache/logs
 *.log
 logs/
+
+
+# Backups/dumps
+backups/
+*.dump
+*.sql
+*.tar
+*.gz
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
